@@ -1,0 +1,6 @@
+*.a
+hlmaster
+*.o
+*.save
+*.swp
+*.log
