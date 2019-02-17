@@ -4,3 +4,5 @@ hlmaster
 *.save
 *.swp
 *.log
+*.in
+*.am
