@@ -7,18 +7,17 @@ BINARY=hlmaster-$(COMPILE_ARCH)
 COMPILE_ARCH=$(shell uname -m | sed -e 's/i.86/x86/' | sed -e 's/^arm.*/arm/')
 LDFLAGS=-s
 PFCSRC=lib/pfc++/src/*.cpp
-LIBS=libpfc++.a
+LIBS=libpfc++.so
 
 all: libpfc++ hlmaster
 
 libpfc++:
-	$(CCX) $(PFCSRC) $(PFCFLAGS) -o libpfc++.a
+	$(CCX) $(PFCSRC) $(PFCFLAGS) -o libpfc++.so
 
 hlmaster:
 	$(CCX) $(SRC) $(LIBS) $(CFLAGS) -o $(BINARY) $(LDFLAGS)
-	rm -rf libpfc++.a
 	strip $(BINARY)
 
 clean:
-	rm -rf libpfc++.a
+	rm -rf libpfc++.so
 	rm -rf $(BINARY)
